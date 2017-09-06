@@ -20,5 +20,6 @@ upgrade
 #./misc_tools.sh
 ./tmux.sh
 ./../vim.sh
+./engineering.sh
 
 ./cleanup.sh

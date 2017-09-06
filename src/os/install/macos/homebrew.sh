@@ -57,6 +57,10 @@ opt_out_of_analytics() {
 
 }
 
+fix_permissions() {
+    sudo chown -R $(whoami) /usr/local/var/homebrew
+}
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 main() {
@@ -64,6 +68,7 @@ main() {
     print_in_purple "\n   Homebrew\n\n"
 
     install_homebrew
+    fix_permissions
     opt_out_of_analytics
 
     brew_update

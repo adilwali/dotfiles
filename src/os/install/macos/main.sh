@@ -23,5 +23,6 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 ./../vim.sh
 ./web_font_tools.sh
 ./productivity.sh
+./engineering.sh
 
 ./cleanup.sh
