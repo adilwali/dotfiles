@@ -26,5 +26,11 @@ install_package "Boost Test" "libboost-test-dev"
 install_package "Boost Threads" "libboost-thread-dev"
 install_package "Lib Mini UPNP" "libminiupnpc-dev"
 install_package "Lib ZMQ" "libzmq3-dev"
+
+# Let's get the special stuff we need for libdb
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:bitcoin/bitcoin
+sudo apt-get update
+
 install_package "Lib DB" "libdb4.8-dev"
 install_package "Lib DB ++" "libdb4.8++-dev"
