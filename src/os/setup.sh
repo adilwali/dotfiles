@@ -9,7 +9,7 @@ declare -r DOTFILES_UTILS_URL="https://raw.githubusercontent.com/$GITHUB_REPOSIT
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 declare dotfilesDirectory="$HOME/.dotfiles"
-declare skipQuestions=false
+declare skipQuestions=true
 
 # ----------------------------------------------------------------------
 # | Helper Functions                                                   |
@@ -178,7 +178,7 @@ verify_os() {
 
     elif [ "$os_name" == "Linux" ] && [ -e "/etc/lsb-release" ]; then
 
-        os_version="$(lsb_release -d | cut -f2 | cut -d' ' -f2)"
+        os_version="$(lsb_release -r | cut -f2 | cut -d' ' -f2)"
 
         if is_supported_version "$os_version" "$MINIMUM_UBUNTU_VERSION"; then
             return 0
