@@ -23,6 +23,12 @@ alias t="tmux"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+alias goadil="pushd ~/Development/src/github.com/adilwali"
+alias gomrt="pushd ~/Development/src/github.com/meritlabs"
+alias gomerit="pushd ~/Development/src/github.com/meritlabs/merit"
+alias golwt="pushd ~/Development/src/github.com/meritlabs/lightwallet-stack"
+alias gocluster="pushd ~/Development/src/github.com/meritlabs/cluster-manager"
+
 # Load OS specific aliases.
 
 . "aliases/$OS/bash_aliases"
