@@ -34,3 +34,5 @@ sudo apt-get update
 
 install_package "Lib DB" "libdb4.8-dev"
 install_package "Lib DB ++" "libdb4.8++-dev"
+
+install_package "curl" "Curl"
