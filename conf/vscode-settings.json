@@ -1,0 +1,25 @@
+{
+    "editor.wordWrap": "on",
+    "editor.minimap.enabled": false,
+    "[typescript]": {
+        "editor.tabSize": 2
+    },
+    "window.zoomLevel": 0,
+    "workbench.editor.enablePreview": false,
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true,
+        "suppressUpdateNotice": false,
+        "suppressWelcomeNotice": true
+    },
+    "files.associations": {
+        "*.css": "postcss"
+    },
+    "gitlens.keymap": "chorded",
+}
