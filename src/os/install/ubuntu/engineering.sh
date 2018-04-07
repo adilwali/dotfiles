@@ -36,3 +36,5 @@ install_package "Lib DB" "libdb4.8-dev"
 install_package "Lib DB ++" "libdb4.8++-dev"
 
 install_package "curl" "Curl"
+install_package "python3" "Python 3"
+install_package "python3-pip" "Python 3 - Pip"
