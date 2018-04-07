@@ -30,9 +30,9 @@ alias gomerit="pushd ~/Development/src/github.com/meritlabs/merit"
 alias golwt="pushd ~/Development/src/github.com/meritlabs/lightwallet-stack"
 alias gocluster="pushd ~/Development/src/github.com/meritlabs/cluster-manager"
 
-alias startr1="meritd --datadir=/mnt/md0/merit --conf=/mnt/md0/merit/merit.conf"
+alias startr1="meritd --datadir=/mnt/md0/merit --conf=/mnt/md0/merit/merit.conf &"
 alias r1="merit-cli --datadir=/mnt/md0/merit --conf=/mnt/md0/merit/merit.conf"
-alias startm1="meritd --datadir=/user/adil/.merit --conf=/user/adil/merit/merit.conf"
+alias startm1="meritd --datadir=/user/adil/.merit --conf=/user/adil/merit/merit.conf &"
 alias m1="merit-cli --datadir=/user/adil/.merit --conf=/user/adil/.merit/merit.conf"
 # Load OS specific aliases.
 
