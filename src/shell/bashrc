@@ -4,3 +4,7 @@
     && . ~/.bash_profile
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+#Better SSH Agent handling
+source ~/.bash_sshag; sshag &>/dev/null
+
