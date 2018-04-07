@@ -10,7 +10,6 @@ update
 upgrade
 
 ./build-essentials.sh
-./../n.sh
 
 ./browsers.sh
 #./compression_tools.sh
@@ -21,5 +20,6 @@ upgrade
 ./tmux.sh
 ./../vim.sh
 ./engineering.sh
+./../n.sh
 
 ./cleanup.sh
