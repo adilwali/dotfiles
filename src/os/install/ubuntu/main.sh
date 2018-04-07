@@ -21,5 +21,7 @@ upgrade
 ./../vim.sh
 ./engineering.sh
 ./../n.sh
+./databases.sh
+./filesystem.sh
 
 ./cleanup.sh
