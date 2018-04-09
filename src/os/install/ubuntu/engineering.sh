@@ -38,3 +38,16 @@ install_package "Lib DB ++" "libdb4.8++-dev"
 install_package "curl" "Curl"
 install_package "python3" "Python 3"
 install_package "python3-pip" "Python 3 - Pip"
+install_package "openssh-server" "Openssd Server"
+
+#VS Code
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+
+install_package "code" "Visual Studio Code"
+
+# Poor's man synchronization of configs
+$HOME/.config/Code/User/settings.json
+ln -s "$(readlink -e ../../../../conf/vscode-settings.json)" "$(readlink -e $HOME/.config/Code/User/)/settings.json"
+
