@@ -51,3 +51,6 @@ install_package "code" "Visual Studio Code"
 $HOME/.config/Code/User/settings.json
 ln -s "$(readlink -e ../../../../conf/vscode-settings.json)" "$(readlink -e $HOME/.config/Code/User/)/settings.json"
 
+# Install GoLang
+cursl https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.10.1.linux-amd64.tar.gz
