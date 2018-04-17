@@ -24,16 +24,21 @@ alias python="/usr/bin/python3"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+alias xclip='xclip -selection c'
+alias githash="git log --pretty=format:'%h' -n 1 | xclip -selection c"
 alias goadil="pushd ~/Development/src/github.com/adilwali"
 alias gomrt="pushd ~/Development/src/github.com/meritlabs"
 alias gomerit="pushd ~/Development/src/github.com/meritlabs/merit"
 alias golwt="pushd ~/Development/src/github.com/meritlabs/lightwallet-stack"
 alias gocluster="pushd ~/Development/src/github.com/meritlabs/cluster-manager"
 
-alias startr1="meritd --datadir=/mnt/md0/merit --conf=/mnt/md0/merit/merit.conf &"
-alias r1="merit-cli --datadir=/mnt/md0/merit --conf=/mnt/md0/merit/merit.conf"
-alias startm1="meritd --datadir=/user/adil/.merit --conf=/user/adil/merit/merit.conf &"
-alias m1="merit-cli --datadir=/user/adil/.merit --conf=/user/adil/.merit/merit.conf"
+alias startr1="meritd -datadir=/mnt/md0/merit -conf=/mnt/md0/merit/merit.conf &"
+alias r1="merit-cli -datadir=/mnt/md0/merit -conf=/mnt/md0/merit/merit.conf"
+alias startm1="meritd -datadir=/home/adil/.merit -conf=/home/adil/.merit/merit.conf &"
+alias m1="merit-cli -datadir=/home/adil/.merit -conf=/home/adil/.merit/merit.conf"
+alias startt1="meritd -datadir=/home/adil/.merit-testnet -conf=/home/adil/.merit-testnet/merit.conf &"
+alias t1="merit-cli -datadir=/home/adil/.merit-testnet -conf=/home/adil/.merit-testnet/merit.conf"
+
 # Load OS specific aliases.
 
 . "aliases/$OS/bash_aliases"
