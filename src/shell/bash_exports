@@ -80,3 +80,15 @@ export PYTHONIOENCODING="UTF-8"
 export PATH=$PATH:/usr/local/go/bin
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/Development
+export PATH=$PATH:$GOPATH/bin
+
+export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
+export JRE_HOME="/usr/lib/jvm/java-8-oracle/jre"
+export JDK_HOME="/usr/lib/jvm/java-8-oracle"
+#export JDK_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+export ANDROID_HOME="/home/adil/Android/Sdk"
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+
+# Fuck android studio
+#export PATH=$PATH:/home/adil/android-studio/gradle/gradle-4.4/bin
+
