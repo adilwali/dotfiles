@@ -28,17 +28,18 @@ install_package "Lib Mini UPNP" "libminiupnpc-dev"
 install_package "Lib ZMQ" "libzmq3-dev"
 
 # Let's get the special stuff we need for libdb
-sudo apt-get install software-properties-common
-sudo add-apt-repository ppa:bitcoin/bitcoin
-sudo apt-get update
+install_package "Common Properties" "software-properties-common"
+add_ppa "bitcoin/bitcoin"
+update
+
 
 install_package "Lib DB" "libdb4.8-dev"
 install_package "Lib DB ++" "libdb4.8++-dev"
 
 install_package "curl" "Curl"
 install_package "python3" "Python 3"
-install_package "python3-pip" "Python 3 - Pip"
-install_package "openssh-server" "Openssd Server"
+install_package "Python 3 - Pip" "python3-pip"
+install_package "OpenSSH Server" "openssh-server"
 
 #VS Code
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
