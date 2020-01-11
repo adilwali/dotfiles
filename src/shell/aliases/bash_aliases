@@ -21,6 +21,7 @@ alias q="exit"
 alias rm="rm -rf --"
 alias t="tmux"
 alias python="/usr/bin/python3"
+alias y="yarn"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

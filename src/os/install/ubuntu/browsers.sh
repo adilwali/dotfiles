@@ -23,9 +23,9 @@ if ! package_is_installed "google-chrome-unstable"; then
 
 fi
 
-install_package "Chrome Canary" "google-chrome-unstable"
-install_package "Chromium" "chromium-browser"
-install_package "Vanilla Chrome" "google-chrome-stable"
+#install_package "Chrome Canary" "google-chrome-unstable"
+#install_package "Chromium" "chromium-browser"
+#install_package "Vanilla Chrome" "google-chrome-stable"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -41,12 +41,12 @@ if ! package_is_installed "firefox-trunk"; then
 
 fi
 
-install_package "Firefox Nightly" "firefox-trunk"
+#install_package "Firefox Nightly" "firefox-trunk"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 printf "\n"
 
-install_package "Flash" "flashplugin-installer"
+#install_package "Flash" "flashplugin-installer"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

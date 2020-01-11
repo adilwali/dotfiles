@@ -2,162 +2,215 @@
 " | General Settings                                                   |
 " ----------------------------------------------------------------------
 
-set nocompatible               " Don't make Vim vi-compatibile.
+set nocompatible                    " Don't make Vim vi-compatibile.
 
-syntax on                      " Enable syntax highlighting.
+syntax on                           " Enable syntax highlighting.
 
-if has("autocmd")
+if has('autocmd')
     filetype plugin indent on
-    "           │     │    └──── Enable file type detection.
-    "           │     └───────── Enable loading of indent file.
-    "           └─────────────── Enable loading of plugin files.
+    "           │     │    └──────── Enable file type detection.
+    "           │     └───────────── Enable loading of indent file.
+    "           └─────────────────── Enable loading of plugin files.
 endif
 
-set autoindent                 " Copy indent to the new line.
+set autoindent                      " Copy indent to the new line.
 
-set backspace=indent           " ┐
-set backspace+=eol             " │ Allow `backspace`
-set backspace+=start           " ┘ in insert mode.
+set backspace=indent                " ┐
+set backspace+=eol                  " │ Allow `backspace`
+set backspace+=start                " ┘ in insert mode.
 
-set backupdir=~/.vim/backups   " Set directory for backup files.
+set backupdir=~/.vim/backups        " Set directory for backup files.
 
-set backupskip=/tmp/*          " ┐ Don't create backups
-set backupskip+=/private/tmp/* " ┘ for certain files.
+if has('wildignore')
+    set backupskip=/tmp/*           " ┐ Don't create backups
+    set backupskip+=/private/tmp/*  " ┘ for certain files.
+endif
 
-set clipboard=unnamed          " ┐
-                               " │ Use the system clipboard
-if has("unnamedplus")          " │ as the default register.
-    set clipboard+=unnamedplus " │
-endif                          " ┘
+set clipboard=unnamed               " ┐
+                                    " │ Use the system clipboard
+if has('unnamedplus')               " │ as the default register.
+    set clipboard+=unnamedplus      " │
+endif                               " ┘
 
-set cpoptions+=$               " When making a change, don't
-                               " redisplay the line, and instead,
-                               " put a `$` sign at the end of
-                               " the changed text.
+set cpoptions+=$                    " When making a change, don't
+                                    " redisplay the line, and instead,
+                                    " put a `$` sign at the end of
+                                    " the changed text.
 
-set colorcolumn=73             " Highlight certain column(s).
-set cursorline                 " Highlight the current line.
-set directory=~/.vim/swaps     " Set directory for swap files.
-set encoding=utf-8 nobomb      " Use UTF-8 without BOM.
-set history=5000               " Increase command line history.
-set hlsearch                   " Enable search highlighting.
-set ignorecase                 " Ignore case in search patterns.
+if has('syntax')
+    set colorcolumn=73              " Highlight certain column(s).
+    set cursorline                  " Highlight the current line.
+endif
 
-set incsearch                  " Highlight search pattern
-                               " as it is being typed.
+set directory=~/.vim/swaps          " Set directory for swap files.
+set encoding=utf-8 nobomb           " Use UTF-8 without BOM.
 
-set laststatus=2               " Always show the status line.
+if has('cmdline_hist')
+    set history=5000                " Increase command line history.
+endif
 
-set lazyredraw                 " Do not redraw the screen while
-                               " executing macros, registers
-                               " and other commands that have
-                               " not been typed.
+if has('extra_search')
 
-set listchars=tab:▸\           " ┐
-set listchars+=trail:·         " │ Use custom symbols to
-set listchars+=eol:↴           " │ represent invisible characters.
-set listchars+=nbsp:_          " ┘
+    set hlsearch                    " Enable search highlighting.
 
-set magic                      " Enable extended regexp.
-set mousehide                  " Hide mouse pointer while typing.
-set noerrorbells               " Disable error bells.
+    set incsearch                   " Highlight search pattern
+                                    " as it is being typed.
+endif
 
-set nojoinspaces               " When using the join command,
-                               " only insert a single space
-                               " after a `.`, `?`, or `!`.
+set ignorecase                      " Ignore case in search patterns.
 
-set nostartofline              " Kept the cursor on the same column.
-set number                     " Show line number.
 
-set numberwidth=5              " Increase the minimal number of
-                               " columns used for the `line number`.
+set laststatus=2                    " Always show the status line.
 
-set report=0                   " Report the number of lines changed.
-set ruler                      " Show cursor position.
+set lazyredraw                      " Do not redraw the screen while
+                                    " executing macros, registers
+                                    " and other commands that have
+                                    " not been typed.
 
-set scrolloff=5                " When scrolling, keep the cursor
-                               " 5 lines below the top and 5 lines
-                               " above the bottom of the screen.
+set listchars=tab:▸\                " ┐
+set listchars+=trail:·              " │ Use custom symbols to
+set listchars+=eol:↴                " │ represent invisible characters.
+set listchars+=nbsp:_               " ┘
 
-set shortmess=aAItW            " Avoid all the hit-enter prompts.
-set showcmd                    " Show the command being typed.
-set showmode                   " Show current mode.
-set spelllang=en_us            " Set the spellchecking language.
+set magic                           " Enable extended regexp.
+set mousehide                       " Hide mouse pointer while typing.
+set noerrorbells                    " Disable error bells.
 
-set smartcase                  " Override `ignorecase` option
-                               " if the search pattern contains
-                               " uppercase characters.
+set nojoinspaces                    " When using the join command,
+                                    " only insert a single space
+                                    " after a `.`, `?`, or `!`.
 
-set synmaxcol=2500             " Limit syntax highlighting (this
-                               " avoids the very slow redrawing
-                               " when files contain long lines).
+set nomodeline                      " Disable for security reasons.
+                                    " https://github.com/numirias/security/blob/cf4f74e0c6c6e4bbd6b59823aa1b85fa913e26eb/doc/2019-06-04_ace-vim-neovim.md#readme
 
-set tabstop=4                  " ┐
-set softtabstop=4              " │ Set global <TAB> settings.
-set shiftwidth=4               " │
-set expandtab                  " ┘
+set nostartofline                   " Kept the cursor on the same column.
+set number                          " Show line number.
 
-set ttyfast                    " Enable fast terminal connection.
-set undodir=~/.vim/undos       " Set directory for undo files.
-set undofile                   " Automatically save undo history.
-set virtualedit=all            " Allow cursor to be anywhere.
+if has('linebreak')
+    set numberwidth=5               " Increase the minimal number of
+                                    " columns used for the `line number`.
+endif
 
-set visualbell                 " ┐
-set noerrorbells               " │ Disable beeping and window flashing
-set t_vb=                      " ┘ https://vim.wikia.com/wiki/Disable_beeping
+set report=0                        " Report the number of lines changed.
 
-set wildmenu                   " Enable enhanced command-line
-                               " completion (by hitting <TAB> in
-                               " command mode, Vim will show the
-                               " possible matches just above the
-                               " command line with the first
-                               " match highlighted).
+if has('cmdline_info')
+    set ruler                       " Show cursor position.
+endif
 
-set winminheight=0             " Allow windows to be squashed.
+set scrolloff=5                     " When scrolling, keep the cursor
+                                    " 5 lines below the top and 5 lines
+                                    " above the bottom of the screen.
+
+set shortmess=aAItW                 " Avoid all the hit-enter prompts.
+
+if has('cmdline_info')
+    set showcmd                     " Show the command being typed.
+endif
+
+set showmode                        " Show current mode.
+
+if has('syntax')
+    set spelllang=en_us             " Set the spellchecking language.
+endif
+
+set smartcase                       " Override `ignorecase` option
+                                    " if the search pattern contains
+                                    " uppercase characters.
+
+if has('syntax')
+    set synmaxcol=2500              " Limit syntax highlighting (this
+                                    " avoids the very slow redrawing
+                                    " when files contain long lines).
+endif
+
+set tabstop=4                       " ┐
+set softtabstop=4                   " │ Set global <TAB> settings.
+set shiftwidth=4                    " │
+set expandtab                       " ┘
+
+set ttyfast                         " Enable fast terminal connection.
+
+if has('persistent_undo')
+    set undodir=~/.vim/undos        " Set directory for undo files.
+    set undofile                    " Automatically save undo history.
+endif
+
+if has('virtualedit')
+    set virtualedit=all             " Allow cursor to be anywhere.
+endif
+
+set visualbell                      " ┐
+set noerrorbells                    " │ Disable beeping and window flashing.
+set t_vb=                           " ┘ https://vim.wikia.com/wiki/Disable_beeping
+
+if has('wildmenu')
+    set wildmenu                    " Enable enhanced command-line
+endif                               " completion (by hitting <TAB> in
+                                    " command mode, Vim will show the
+                                    " possible matches just above the
+                                    " command line with the first
+                                    " match highlighted).
+if has('windows')
+    set winminheight=0              " Allow windows to be squashed.
+endif
 
 
 " ----------------------------------------------------------------------
 " | Plugins                                                            |
 " ----------------------------------------------------------------------
 
-" Use Vundle to manage the Vim plugins.
-" https://github.com/VundleVim/Vundle.vim
+" Use `minpac` to manage the Vim plugins.
+" https://github.com/k-takata/minpac
+
+function! InitPlugins() abort
+
+    packadd minpac
+
+    call minpac#init()
+    call minpac#add('k-takata/minpac', { 'type': 'opt' })
+
+    call minpac#add('altercation/vim-colors-solarized')
+    call minpac#add('ap/vim-css-color')
+    call minpac#add('chrisbra/unicode.vim')
+    call minpac#add('chrisbra/vim-xml-runtime')
+    call minpac#add('editorconfig/editorconfig-vim')
+    call minpac#add('godlygeek/tabular')
+    call minpac#add('isRuslan/vim-es6')
+    call minpac#add('jelera/vim-javascript-syntax')
+    call minpac#add('kien/ctrlp.vim')
+    call minpac#add('marijnh/tern_for_vim', { 'do': ':silent ! cd $HOME/.vim/pack/minpac/start/tern_for_vim && npm i &> /dev/null' })
+    call minpac#add('mattn/emmet-vim')
+    call minpac#add('mattn/webapi-vim')
+    call minpac#add('mhinz/vim-signify')
+    call minpac#add('moll/vim-node')
+    call minpac#add('mtscout6/syntastic-local-eslint.vim')
+    call minpac#add('nathanaelkane/vim-indent-guides')
+    call minpac#add('raimondi/delimitmate')
+    call minpac#add('scrooloose/nerdtree')
+    call minpac#add('scrooloose/syntastic')
+    call minpac#add('sheerun/vim-polyglot')
+    call minpac#add('shougo/neocomplcache.vim')
+    call minpac#add('shougo/neosnippet')
+    call minpac#add('shougo/neosnippet-snippets')
+    call minpac#add('thiagoalessio/rainbow_levels.vim')
+    call minpac#add('tomtom/tcomment_vim')
+    call minpac#add('tpope/vim-commentary')
+    call minpac#add('tpope/vim-fugitive')
+    call minpac#add('tpope/vim-repeat')
+    call minpac#add('tpope/vim-surround')
+    call minpac#add('tpope/vim-unimpaired')
+    call minpac#add('wellle/targets.vim')
+
+endfunction
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-" Disable file type detection
-" (this is required by Vundle).
+" Define custom commands for managing plugins.
 
-filetype off
-
-" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-" Include Vundle in the runtime path.
-
-set runtimepath+=~/.vim/plugins/Vundle.vim
-
-" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-" Initialize Vundle and specify the path
-" where the plugins should be installed.
-
-call vundle#begin("~/.vim/plugins")
-
-    Plugin 'VundleVim/Vundle.vim'
-
-    Plugin 'altercation/vim-colors-solarized'
-    Plugin 'ap/vim-css-color'
-
-
-call vundle#end()
-
-" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-" Re-enable file type detection
-" (disabling it was required by Vundle).
-
-filetype on
-
+command! PluginsClean   call InitPlugins() | call minpac#clean()
+command! PluginsSetup   call InitPlugins() | call minpac#update('', {'do': 'quit'})
+command! PluginsStatus  call InitPlugins() | call minpac#status()
+command! PluginsUpdate  call InitPlugins() | call minpac#update('', {'do': 'call minpac#status()'})
 
 " ----------------------------------------------------------------------
 " | Plugins - Emmet                                                    |
@@ -173,7 +226,9 @@ let g:user_emmet_leader_key="<C-E>"
 " Load custom Emmet snippets.
 " http://docs.emmet.io/customization/snippets/
 
-" let g:user_emmet_settings = "webapi#json#decode(join(readfile(expand("~/.vim/snippets/emmet.json")), "\n"))"
+if exists('webapi#json')
+    let g:user_emmet_settings = webapi#json#decode(join(readfile(expand("~/.vim/snippets/emmet.json")), "\n"))
+endif
 
 
 " ----------------------------------------------------------------------
@@ -192,17 +247,6 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven
         \ guibg=#073642
         \ ctermbg=DarkMagenta
-
-
-" ----------------------------------------------------------------------
-" | Plugins - Instant Markdown                                         |
-" ----------------------------------------------------------------------
-
-" Do not automatically launch the preview
-" window when the markdown file is open.
-" https://github.com/suan/vim-instant-markdown#ginstant_markdown_autostart
-
-let g:instant_markdown_autostart = 0
 
 
 " ----------------------------------------------------------------------
@@ -235,7 +279,6 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " Make `Shift+Tab` insert `Tab` character.
 
 inoremap <S-TAB> <C-V><TAB>
-
 
 " ----------------------------------------------------------------------
 " | Plugins - Signify                                                  |
@@ -280,6 +323,20 @@ function! GetGitBranchName()
     endif
 
     return branchName
+
+endfunction
+
+" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+function! PrettyPrint()
+
+    if ( &filetype == 'json' && (has('python3') || has('python')) )
+        %!python -m json.tool
+        norm! ggVG==
+    elseif ( &filetype == 'svg' || &filetype == 'xml' )
+        set formatexpr=xmlformat#Format()
+        norm! Vgq
+    endif
 
 endfunction
 
@@ -441,7 +498,7 @@ set background=dark            " Use colors that look good
 " Set custom configurations for when the
 " Solarized theme is used from Vim's Terminal mode.
 "
-" http://ethanschoonover.com/solarized/vim-colors-solarized#advanced-configuration
+" https://github.com/altercation/vim-colors-solarized
 
 if !has("gui_running")
     let g:solarized_contrast = "high"
@@ -450,8 +507,7 @@ if !has("gui_running")
     let g:solarized_visibility = "high"
 endif
 
-colorscheme solarized          " Use custom color scheme.
-
+silent! colorscheme solarized  " Use custom color scheme.
 
 " ----------------------------------------------------------------------
 " | Key Mappings                                                       |
@@ -495,13 +551,6 @@ map <leader>gd :SignifyToggle<CR>
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-" [,h ] JSHint the code.
-" https://github.com/Shutnik/jshint2.vim
-
-nmap <leader>h :JSHint<CR>
-
-" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 " [,l ] Toggle `set list`.
 
 nmap <leader>l :set list!<CR>
@@ -511,6 +560,30 @@ nmap <leader>l :set list!<CR>
 " [,n ] Toggle `set relativenumber`.
 
 nmap <leader>n :call ToggleRelativeLineNumbers()<CR>
+
+" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+" [,pp] Pretty print
+
+map <Leader>pp :call PrettyPrint()<CR>
+
+" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+" [,rl ] Toggle `RainbowLevels`.
+
+map <leader>rl :RainbowLevelsToggle<cr>
+
+" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+" [,sh] Show hex dump.
+
+nmap <leader>sh :%!xxd<CR>
+
+" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+" [,sr] Strip carriage returns.
+
+nmap <leader>sr :%s/\r//g<CR>
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

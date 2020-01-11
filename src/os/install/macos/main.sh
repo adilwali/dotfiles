@@ -11,6 +11,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 ./bash.sh
 ./../n.sh
 
+./git.sh
+./../nvm.sh
 ./browsers.sh
 #./compression_tools.sh
 ./git.sh
@@ -18,6 +20,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 #./image_tools.sh
 #./misc.sh
 ./misc_tools.sh
+./quick_look.sh
 ./tmux.sh
 #./video_tools.sh
 ./../vim.sh
