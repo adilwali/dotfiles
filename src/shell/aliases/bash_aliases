@@ -22,13 +22,15 @@ alias rm="rm -rf --"
 alias t="tmux"
 alias python="/usr/bin/python3"
 alias y="yarn"
+alias ng="/home/adil/n/lib/node_modules/@angular/cli/bin/ng"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 alias xclip='xclip -selection c'
 alias githash="git log --pretty=format:'%h' -n 1 | xclip -selection c"
 alias goadil="pushd ~/Development/src/github.com/adilwali"
-alias gomrt="pushd ~/Development/src/github.com/meritlabs"
+alias gomrt="pushd ~/Development/src/github.com/meritcapital"
+alias gostrat="pushd ~/Development/src/github.com/meritcapital/strategies"
 alias gomerit="pushd ~/Development/src/github.com/meritlabs/merit"
 alias golwt="pushd ~/Development/src/github.com/meritlabs/lightwallet-stack"
 alias gocluster="pushd ~/Development/src/github.com/meritlabs/cluster-manager"
