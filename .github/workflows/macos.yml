@@ -7,17 +7,23 @@
 
 jobs:
   macOS:
-    runs-on: macOS-latest
+    runs-on: macos-latest
     steps:
 
       - name: Checkout repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
 
       - name: Install dependencies
         run: brew install shellcheck
 
       - name: Run tests
-        run: ./tests/shellcheck.sh
+        run: ./scripts/lint/shell.sh
+
+      - name: Lint Markdown files
+        run: ./scripts/lint/markdown.sh
+
+      - name: Check links from Markdown file
+        run: ./scripts/check_links/markdown.sh
 
 name: macOS
 

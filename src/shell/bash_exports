@@ -5,6 +5,15 @@
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Stop the macOS Terminal from showing a warning
+# message when Zsh is not the default shell.
+#
+# https://support.apple.com/en-us/HT208050
+
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # Make `vim` the default editor.
 
 export EDITOR="vim"
@@ -66,29 +75,33 @@ export NODE_REPL_HISTORY_SIZE=10000
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Make new shells get the history lines from all previous
+# If not set, make new shells get the history lines from all previous
 # shells instead of the default "last window closed" history.
 
-export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+if ! printf "%s" "$PROMPT_COMMAND" | grep "history -a" &> /dev/null; then
+    export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+fi
+
+# Remove `update_terminal_cwd` from the `PROMPT_COMMAND`
+# environment variable if it doesn't exist in the current shell.
+#
+# On macOS `update_terminal_cwd` is added to the `PROMPT_COMMAND`
+# environment variable however, `/etc/bashrc_Apple_Terminal`
+# that contains the shell function definition is only executed
+# for `Terminal.app`. Other terminals (e.g.: VS Code's terminal)
+# will not have the shell function, hence, they will show the
+#
+#    bash: update_terminal_cwd: command not found
+#
+# error everytime the prompt is displayed.
+
+if  printf "%s" "$PROMPT_COMMAND" | grep "update_terminal_cwd" &> /dev/null &&
+    ! command -v update_terminal_cwd &> /dev/null; then
+    export PROMPT_COMMAND="$(printf "%s" "$PROMPT_COMMAND" | sed 's/\(.*\)update_terminal_cwd;*\(.*\)/\1\2/g')"
+fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Make Python use UTF-8 encoding for output to stdin/stdout/stderr.
 
 export PYTHONIOENCODING="UTF-8"
-
-export PATH=$PATH:/usr/local/go/bin
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/Development
-export PATH=$PATH:$GOPATH/bin
-
-export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
-export JRE_HOME="/usr/lib/jvm/java-8-oracle/jre"
-export JDK_HOME="/usr/lib/jvm/java-8-oracle"
-#export JDK_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
-export ANDROID_HOME="/home/adil/Android/Sdk"
-export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-
-# Fuck android studio
-#export PATH=$PATH:/home/adil/android-studio/gradle/gradle-4.4/bin
-
