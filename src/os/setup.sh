@@ -1,14 +1,14 @@
 #!/bin/bash
 
-declare -r GITHUB_REPOSITORY="alrra/dotfiles"
+declare -r GITHUB_REPOSITORY="adilwali/dotfiles"
 
 declare -r DOTFILES_ORIGIN="git@github.com:$GITHUB_REPOSITORY.git"
 declare -r DOTFILES_TARBALL_URL="https://github.com/$GITHUB_REPOSITORY/tarball/main"
-declare -r DOTFILES_UTILS_URL="https://raw.githubusercontent.com/$GITHUB_REPOSITORY/main/src/os/utils.sh"
+declare -r DOTFILES_UTILS_URL="utils.sh"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-declare dotfilesDirectory="$HOME/projects/dotfiles"
+declare dotfilesDirectory="$HOME/Development/src/github.com/adilwali/dotfiles"
 declare skipQuestions=false
 
 # ----------------------------------------------------------------------
